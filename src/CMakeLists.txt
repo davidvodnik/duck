@@ -15,3 +15,12 @@ add_executable(test_parser
     )
 target_link_libraries(test_parser PRIVATE catch)
 add_test(NAME test_parser COMMAND test_parser -o ${CMAKE_BINARY_DIR}/parser.xml -r junit)
+
+add_executable(duck
+    tokenizer.h
+    tokenizer.cc
+    parser.h
+    parser.cc
+    duck.cc
+    )
+target_link_libraries(duck PRIVATE fmt::fmt)
