@@ -24,3 +24,5 @@ add_executable(duck
     duck.cc
     )
 target_link_libraries(duck PRIVATE parser generate_interface print_error)
+
+install(TARGETS duck DESTINATION bin)
