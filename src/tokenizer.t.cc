@@ -5,6 +5,19 @@ using namespace Duck;
 
 TEST_CASE("Read whitespace") { REQUIRE(Tokenizer(" \n\t").valid() == false); }
 
+TEST_CASE("Empty string") {
+    Tokenizer t("");
+    REQUIRE(t.valid() == false);
+}
+
+TEST_CASE("Single token") {
+    Tokenizer t("t");
+    REQUIRE(t.valid() == true);
+    REQUIRE(t.token() == "t");
+    t.next();
+    REQUIRE(t.valid() == false);
+}
+
 TEST_CASE("Read special tokens") {
     REQUIRE(Tokenizer("  { ").token() == "{");
     REQUIRE(Tokenizer("  } ").token() == "}");
