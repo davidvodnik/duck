@@ -1,4 +1,4 @@
 #pragma once
 #include <interface.h>
 
-void generate_interface(const Duck::Interface &interface);
+std::string generate_interface(const Duck::Interface &interface);

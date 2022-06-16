@@ -24,5 +24,7 @@ add_executable(duck
     duck.cc
     )
 target_link_libraries(duck PRIVATE parser generate_interface print_error)
+#target_link_options(duck PRIVATE "-s " "EXPORTED_FUNCTIONS=['_malloc','_free']" "-s" "EXPORTED_RUNTIME_METHODS=['ccall','UTF8ToString']")
+target_link_options(duck PRIVATE "SHELL: -s EXPORTED_FUNCTIONS=['_malloc','_free'] -s EXPORTED_RUNTIME_METHODS=['ccall','UTF8ToString']")
 
 install(TARGETS duck DESTINATION bin)
