@@ -25,7 +25,7 @@ add_executable(duck
     )
 target_link_libraries(duck PRIVATE parser generate_interface print_error)
 if(EMSCRIPTEN)
-target_link_options(duck PRIVATE "SHELL: -s EXPORTED_FUNCTIONS=['_malloc','_free'] -s EXPORTED_RUNTIME_METHODS=['ccall','UTF8ToString'] -s EXPORT_ES6=1 -s MODULARIZE=1")
+target_link_options(duck PRIVATE "SHELL: -s EXPORT_ES6=1 -s MODULARIZE=1 --bind")
 endif()
 
 install(TARGETS duck DESTINATION bin)
